@@ -1,4 +1,4 @@
-import React, { JSX } from "react";
+import React, { JSX, useEffect } from "react";
 import { Button, Divider, Form, FormInstance, Input, InputNumber } from "antd";
 import { IStock } from "./stock.interface";
 
@@ -24,6 +24,10 @@ type TProps = {
  */
 export const StockForm: React.FC<TProps> = (props): JSX.Element => {
   const { hadleCancel, onFinish, formRef, initialValues = {} } = props;
+
+  useEffect(() => { 
+    formRef.setFieldsValue(initialValues);
+  }, [formRef, initialValues])
 
   return (
     <Form

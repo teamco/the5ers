@@ -75,6 +75,8 @@ export function Stocks() {
 
   const handleEditStock = (id: string) => {
 
+    formRef.resetFields();
+
     /**
      * Handles the form submission for updating a stock.
      * 
