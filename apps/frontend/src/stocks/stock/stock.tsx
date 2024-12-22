@@ -30,7 +30,14 @@ export const Stock: React.FC = (): JSX.Element => {
       setLoading(false);
 
       const client = new FmpClient();
-      client.getQuote(res.existingStock.symbol).then(q => setStock(q[0]));
+      client.getQuote(res.existingStock.symbol).then(q => {
+        const stock = {
+          ...res.existingStock,
+          ...q[0]
+        };
+
+        setStock(stock);
+      });
     })
   }, [id])
 
