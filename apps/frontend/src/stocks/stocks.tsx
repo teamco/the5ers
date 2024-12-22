@@ -46,7 +46,7 @@ export function Stocks() {
     scroll: { x: 800 },
     bordered: true,
     className: 'gridList',
-    dataSource: stocks,
+    dataSource: stocks.map(s => ({ ...s, key: s._id })) || [],
     loading,
     title: () => (
       <div className="gridHeader">
