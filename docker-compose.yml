@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: monorepo-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./docker/db-init.js:/docker-entrypoint-initdb.d/db-init.js:ro
+    environment:
+      MONGO_INITDB_DATABASE: interview
+
+networks:
+  default:
+    driver: bridge

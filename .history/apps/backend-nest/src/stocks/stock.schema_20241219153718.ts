@@ -1,0 +1,18 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
+
+export type StockDocument = HydratedDocument<Stock>;
+
+@Schema({collection: 'stocks'})
+export class Stock {
+  @Prop()
+  name: string;
+
+  @Prop()
+  price: number;
+
+  @Prop()
+  symbol: string;
+}
+
+export const CatSchema = SchemaFactory.createForClass(Stock);
