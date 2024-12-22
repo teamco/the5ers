@@ -9,8 +9,7 @@ export class CreateStockDto {
   @IsNotEmpty()
   readonly price: number;
 
-  @IsString()
-  @MaxLength(3)
+  @IsString()  
   @IsNotEmpty()
   readonly symbol: string;
 }
